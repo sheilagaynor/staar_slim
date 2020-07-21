@@ -14,21 +14,21 @@ workflow STAAR_SLIM {
         Int window_length
     }
     call run_null_model {
-    input:
-        sample_id = sample_id,
-        group_id = group_id,
-        pheno_file = pheno_file,
-        outcome = outcome,
-        covariates = covariates,
-        kinship_file = kinship_file
+        input:
+            sample_id = sample_id,
+            group_id = group_id,
+            pheno_file = pheno_file,
+            outcome = outcome,
+            covariates = covariates,
+            kinship_file = kinship_file
     }
     call run_genetic_region {
-    input:
-        num_cores=num_cores,
-        null_file=run_null_model.null_model,
-        geno_file=geno_file,
-        step_length=step_length,
-        window_length=window_length
+        input:
+            num_cores=num_cores,
+            null_file=run_null_model.null_model,
+            geno_file=geno_file,
+            step_length=step_length,
+            window_length=window_length
     }
     output {
         File null_model = run_null_model.null_model
