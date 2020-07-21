@@ -50,6 +50,8 @@ task run_null_model {
     }
     runtime {
         docker: "quay.io/sheilagaynor/staar_slim"
+        memory: "20 GB"
+        disks: "local-disk 1 HDD"
     }
     output {
         File null_model = "null_model.Rds"
@@ -69,6 +71,8 @@ task run_genetic_region {
     }
     runtime {
         docker: "quay.io/sheilagaynor/staar_slim"
+        memory: "20 GB"
+        disks: "local-disk 4 HDD"
     }
     output {
         File results = "genetic_region.Rds"
