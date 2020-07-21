@@ -46,7 +46,7 @@ task run_null_model {
         File kinship_file
     }
     command {
-        Rscript /Users/sheilagaynor/Desktop/staar-workflow/STAAR_null_model.R ${sample_id} ${group_id} ${pheno_file} ${outcome} ${covariates} ${kinship_file}
+        Rscript /STAAR_null_model.R ${sample_id} ${group_id} ${pheno_file} ${outcome} ${covariates} ${kinship_file}
     }
     runtime {
         docker: "quay.io/sheilagaynor/staar_slim"
@@ -67,7 +67,7 @@ task run_genetic_region {
         Int window_length
     }
     command {
-        Rscript /Users/sheilagaynor/Desktop/staar-workflow/STAAR_genetic_region.R ${num_cores} ${null_file} ${geno_file} ${step_length} ${window_length}
+        Rscript /STAAR_genetic_region.R ${num_cores} ${null_file} ${geno_file} ${step_length} ${window_length}
     }
     runtime {
         docker: "quay.io/sheilagaynor/staar_slim"
