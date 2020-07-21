@@ -5,13 +5,13 @@ library(SeqVarTools); library(dplyr); library(doMC)
 # Parse arguments
 args <- commandArgs(T)
 # Compute inputs
-num_cores <- args[1]
+num_cores <- as.numeric(args[1])
 # File inputs
 null_file <- args[2]
 geno_file <- args[3]
 # Window inputs
-step_length <- args[4]
-window_length <- args[5]
+step_length <- as.numeric(args[4])
+window_length <- as.numeric(args[5])
 
 # Prepare annotations
 prepare_annot <- function(geno){
@@ -134,7 +134,7 @@ if(!is.null(out))
   colnames(out)[(length(colnames(out))-1):length(colnames(out))] <- c("ACAT-O","STAAR-O")
   colnames(out)[1:4] <- c('chr', 'start', 'end', 'n_snv')
 }
-seqClose(genofile)
+seqClose(geno)
 
 # Save output
 saveRDS(out, 'genetic_region.Rds')
