@@ -10,4 +10,4 @@ COPY STAAR_0.9.5.tar.gz /STAAR_0.9.5.tar.gz
 RUN Rscript -e 'install.packages("STAAR_0.9.5.tar.gz", repos=NULL, type="source")'
 
 # Copy in R scripts
-COPY STAAR_null_model.R STAAR_genetic_region.R /
+COPY STAAR_null_model.R STAAR_genetic_region.R STAAR_summarize.R /
